@@ -131,7 +131,12 @@ fitness = []
 for art in genepool:
     fitness.append(1/art.error())
 fitness = np.array(fitness)
+result = genepool[np.argmax(fitness)].draw()
 fig, ax = plt.subplots(2,1)
 ax[0].imshow(model)
-ax[1].imshow(genepool[np.argmax(fitness)].draw())
+ax[1].imshow(result)
 plt.show()
+
+
+result = cv2.cvtColor(result,cv2.COLOR_RGB2BGR)
+cv2.imwrite(args.image+".mond.jpg",result)
