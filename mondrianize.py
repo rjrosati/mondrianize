@@ -111,8 +111,6 @@ model = cv2.imread(args.image,cv2.IMREAD_COLOR)
 surviving_pop = 100
 num_generations = 200
 num_children = 10
-plt.imshow(model)
-plt.show()
 genepool = []
 for i in range(int(np.ceil(surviving_pop/num_children))):
     genepool.append(Art(model))
@@ -132,5 +130,7 @@ fitness = []
 for art in genepool:
     fitness.append(1/art.error())
 fitness = np.array(fitness)
-plt.imshow(genepool[np.argmax(fitness)].draw())
+fig, ax = plt.subplots(2,1)
+ax[0].imshow(model)
+ax[1].imshow(genepool[np.argmax(fitness)].draw())
 plt.show()
