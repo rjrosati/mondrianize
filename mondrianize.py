@@ -108,6 +108,7 @@ parser.add_argument('image',type=fileexists,help='the image to model')
 args = parser.parse_args()
 
 model = cv2.imread(args.image,cv2.IMREAD_COLOR)
+model = cv2.cvtColor(model,cv2.COLOR_BGR2RGB)
 surviving_pop = 100
 num_generations = 200
 num_children = 10
