@@ -109,9 +109,9 @@ args = parser.parse_args()
 
 model = cv2.imread(args.image,cv2.IMREAD_COLOR)
 model = cv2.cvtColor(model,cv2.COLOR_BGR2RGB)
-surviving_pop = 100
-num_generations = 200
-num_children = 10
+surviving_pop = 10
+num_generations = 500
+num_children = 100
 genepool = []
 for i in range(int(np.ceil(surviving_pop/num_children))):
     genepool.append(Art(model))
